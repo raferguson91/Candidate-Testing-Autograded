@@ -13,7 +13,7 @@ let candidateAnswer = "";
 //TODO: Variables for Part 2
 let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ",
    "(5 + 3)/2 * 10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
-let correctAnswers = ["sally ride", "true", "40", "trajectory", "3"];
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
 
@@ -25,7 +25,7 @@ candidateName = input.question("What is your name? ");
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (let i = 0; i < questions.length; i++) {
-   let currentAnswer = input.question(questions[i]).toLowerCase();
+   let currentAnswer = input.question(questions[i]);
   candidateAnswers.push(currentAnswer);
   }
 } 
@@ -41,7 +41,7 @@ let numberOfQuestions = 5;
 
 
 for (let i =0; i < correctAnswers.length; i++) {
-  if (correctAnswers[i] == candidateAnswers[i]) {
+  if (correctAnswers[i].toLowerCase() == candidateAnswers[i].toLowerCase()) {
     numberOfCorrect = numberOfCorrect + 1;
    
   }
@@ -60,7 +60,8 @@ if (grade < 80) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-  console.log("Hello " +candidateName + "!");
+  console.log(`Hello ${candidateName}!`);
+
   askQuestion();
   gradeQuiz(this.candidateAnswers);
  
